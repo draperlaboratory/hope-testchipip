@@ -1,10 +1,10 @@
-#define DRAM_BASE 0x80000000
+#define DRAM_BASE 0xC0000000
 
 // boot all cores (only hart 0) and jump to main program execution
 .section .text.start, "ax", @progbits
 .globl _start
 _start:
-  li a1, 0x2000000 // base address of clint
+  li a1, 0x10000000 // base address of clint
   csrr a0, mhartid
   bnez a0, boot_core
   addi a2, a1, 4
